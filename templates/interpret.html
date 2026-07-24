@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+<title>
+Interpret Variant
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+
+<a href="/">
+Home
+</a>
+
+
+<a href="/interpret">
+Interpret Variant
+</a>
+
+
+<a href="/results">
+Results
+</a>
+
+
+<a href="/about">
+About
+</a>
+
+
+<a href="/contact">
+Contact
+</a>
+
+
+
+</nav>
+
+
+
+
+
+
+<section class="interpret-container">
+
+
+
+<div class="feature-card">
+
+
+<h1>
+🧬 Variant Interpretation
+</h1>
+
+
+<p>
+
+Enter genomic information to generate
+a variant evidence report.
+
+</p>
+
+
+
+
+
+<form action="/results" method="POST">
+
+
+
+<label>
+Gene Symbol
+</label>
+
+
+<input
+
+type="text"
+
+name="gene"
+
+placeholder="Example: BRCA1"
+
+required
+
+>
+
+
+
+
+
+<label>
+HGVS Variant
+</label>
+
+
+
+<input
+
+type="text"
+
+name="variant"
+
+placeholder="Example: c.68_69delAG"
+
+required
+
+>
+
+
+
+
+
+
+<label>
+Genome Build
+</label>
+
+
+
+<select name="genome_build">
+
+
+<option>
+GRCh38
+</option>
+
+
+<option>
+GRCh37
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+<button type="submit">
+
+Analyze Variant
+
+</button>
+
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+</body>
+
+
+</html>
