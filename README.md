@@ -49,26 +49,27 @@ The four screenshots below follow the actual user path through the app: landing 
 
 **1. Home page**
 Landing page introducing the project and summarizing the four-stage workflow shown in the UI (HGVS Input → Variant Validation → Evidence Retrieval → Interpretation).
+<img width="1440" height="1431" alt="home" src="https://github.com/user-attachments/assets/99e93f30-a834-48d5-a4af-91e3c9247522" />
 
-![Home Page](images/home.png)
 
 **2. Variant interpretation form**
 Intake form for the gene symbol, HGVS coding variant, and genome build (GRCh37/GRCh38). This is the only user input the pipeline requires.
+<img width="1440" height="490" alt="interpret" src="https://github.com/user-attachments/assets/444dd88a-22b3-4089-ba48-83bd8f8f7968" />
 
-![Interpret Variant Form](images/interpret.png)
+
 
 **3. Generated report (results page)**
 Full evidence report for a submitted variant: variant summary, ClinVar clinical significance, Ensembl molecular consequence, genomic coordinates, and the ACMG-inspired evidence table with the resulting classification badge.
 
-![Scientific Report](images/results.png)
+<img width="1440" height="2850" alt="results" src="https://github.com/user-attachments/assets/091ef5e2-3562-4b4a-9fe9-271b88c36c13" />
+
 
 **4. Exported PDF report**
 Cover page of the same report exported as a standalone PDF, including report ID, analysis type, and genome build.
 
-![PDF Report](images/pdf_report.png)
+<img width="1700" height="2200" alt="pdf_report" src="https://github.com/user-attachments/assets/902d7f12-5b75-4de2-850f-db7140d606b4" />
 
-> [!NOTE]
-> Static screenshots don't show the ~1–3 second wait while the app makes live ClinVar and Ensembl API calls, or how the report updates end to end. A 15–20 second screen recording (form entry → submit → scroll through the report → PDF download) would communicate this better than the four stills above. I'd embed it as a GIF directly under this note, or link to a short Loom/asciinema recording if file size becomes an issue — GitHub renders GIFs inline but silently strips autoplaying `<video>` tags in READMEs.
+
 
 ---
 
