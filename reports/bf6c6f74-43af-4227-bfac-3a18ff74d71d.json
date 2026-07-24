@@ -1,0 +1,31 @@
+{
+    "gene": "BRCA1",
+    "variant": "c.68_69delAG",
+    "genome_build": "GRCh38",
+    "variant_type": "Deletion / Frameshift",
+    "clinvar": {
+        "status": "ClinVar error",
+        "error": "'result'"
+    },
+    "ensembl": {
+        "status": "Connection error",
+        "error": "HTTPSConnectionPool(host='rest.ensembl.org', port=443): Read timed out. (read timeout=20)"
+    },
+    "mapping": {
+        "status": "Connection failed",
+        "error": "HTTPSConnectionPool(host='rest.ensembl.org', port=443): Read timed out. (read timeout=20)"
+    },
+    "gnomad": {
+        "status": "gnomAD request failed",
+        "frequency": null,
+        "interpretation": "Unavailable"
+    },
+    "acmg": {
+        "score": 40,
+        "classification": "Variant of Uncertain Significance",
+        "evidence": [
+            "PVS1: Predicted loss-of-function variant"
+        ]
+    },
+    "reasoning": "The variant BRCA1:c.68_69delAG is classified as a deletion / frameshift variant. Population frequency evidence: Unavailable. ACMG-inspired interpretation: Variant of Uncertain Significance."
+}

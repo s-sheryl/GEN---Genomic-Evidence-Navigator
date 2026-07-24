@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Variant Interpretation Report
+</title>
+
+
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+<nav>
+
+<a href="/">
+Home
+</a>
+
+
+<a href="/interpret">
+Interpret Variant
+</a>
+
+
+<a href="/results">
+Results
+</a>
+
+
+<a href="/about">
+About
+</a>
+
+</nav>
+
+
+
+
+<section class="interpret-container">
+
+
+{% if not gene %}
+
+<div class="no-results">
+
+<h2>No Variant Analysis Available</h2>
+
+<p>
+Please interpret a variant first.
+</p>
+
+<a href="/interpret">
+
+<button>
+Interpret Variant
+</button>
+
+</a>
+
+</div>
+
+{% else %}
+
+<!-- entire report -->
+
+
+<div class="feature-card report-card">
+
+
+<h1>
+🧬 Variant Interpretation Report
+</h1>
+
+
+<p>
+Generated genomic evidence summary
+</p>
+
+
+
+
+
+<!-- =========================
+Report Header
+========================= -->
+
+
+<table>
+
+
+<tr>
+
+<td>
+Assistant
+</td>
+
+<td>
+Genome Variant Interpretation Assistant
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Report Type
+</td>
+
+<td>
+Variant Interpretation Report
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Report ID
+</td>
+
+<td>
+GEN-{{ gene if gene else "N/A" }}-{{ variant if variant else "N/A" }}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Generated Date
+</td>
+
+<td>
+<span id="report-generated-date">
+—
+</span>
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Genome Build
+</td>
+
+<td>
+{{genome_build}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Analysis Type
+</td>
+
+<td>
+Educational ACMG-Inspired Variant Interpretation
+</td>
+
+</tr>
+
+
+</table>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var dateField = document.getElementById("report-generated-date");
+
+    if (dateField) {
+
+        dateField.textContent = new Date().toLocaleString();
+
+    }
+
+});
+
+</script>
+
+
+
+
+
+
+
+<!-- =========================
+Variant Summary
+========================= -->
+
+
+<h2>
+Variant Summary
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<td>
+Gene
+</td>
+
+<td>
+{{gene}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Variant
+</td>
+
+<td>
+{{variant}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Genome Build
+</td>
+
+<td>
+{{genome_build}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Variant Type
+</td>
+
+<td>
+{{variant_type}}
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Validation
+</td>
+
+
+<td>
+
+
+{% if valid %}
+
+<span class="benign">
+
+✔ Valid HGVS
+
+</span>
+
+
+{% else %}
+
+
+<span class="pathogenic">
+
+❌ Invalid HGVS
+
+</span>
+
+
+{% endif %}
+
+
+</td>
+
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Interpretation
+</td>
+
+
+<td>
+
+{{interpretation}}
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+
+
+
+
+
+
+<!-- =========================
+Analysis Workflow
+========================= -->
+
+
+<h2>
+Analysis Workflow
+</h2>
+
+
+<div class="workflow">
+
+<div class="steps">
+
+<span>Input Variant</span>
+<br>↓<br>
+<span>HGVS Validation</span>
+<br>↓<br>
+<span>Variant Type Detection</span>
+<br>↓<br>
+<span>ClinVar</span>
+<br>↓<br>
+<span>Ensembl</span>
+<br>↓<br>
+<span>Variant Mapping</span>
+
+<br>↓<br>
+<span>ACMG Evidence Engine</span>
+<br>↓<br>
+<span>Final Interpretation</span>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!-- =========================
+ClinVar
+========================= -->
+
+
+<h2>
+Clinical Evidence - ClinVar
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<td>Status</td>
+
+<td>
+{{clinvar.status}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Clinical Significance
+</td>
+
+<td>
+{{ clinvar.clinical_significance if clinvar.clinical_significance else "Not available" }}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Review Status
+</td>
+
+<td>
+{{ clinvar.review_status if clinvar.review_status else "Not available" }}
+</td>
+
+</tr>
+
+
+
+
+<tr>
+
+<td>
+Conditions
+</td>
+
+
+<td>
+
+{% if clinvar.conditions %}
+    {% for c in clinvar.conditions %}
+        {{ c }}<br>
+    {% endfor %}
+{% else %}
+    No associated conditions found
+{% endif %}
+
+
+</td>
+
+
+</tr>
+
+
+</table>
+
+
+
+
+
+
+
+
+<!-- =========================
+Ensembl
+========================= -->
+
+
+<h2>
+🧬 Ensembl Annotation
+</h2>
+
+
+
+<table>
+
+
+<tr>
+
+<td>
+Status
+</td>
+
+<td>
+{{ensembl.status}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Chromosome
+</td>
+
+<td>
+{{ensembl.chromosome}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Position
+</td>
+
+<td>
+{{ensembl.position}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Transcript
+</td>
+
+<td>
+{{ensembl.transcript}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Protein Change
+</td>
+
+<td>
+{{ensembl.protein_change}}
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Consequence
+</td>
+
+<td>
+{{ensembl.consequence}}
+</td>
+
+</tr>
+
+
+
+</table>
+
+
+
+
+<!-- =========================
+Mapping
+========================= -->
+
+
+<h2>
+Variant Mapping
+</h2>
+
+
+<table>
+
+
+<tr>
+
+<td>
+Status
+</td>
+
+
+<td>
+{{mapping.status}}
+</td>
+
+
+</tr>
+
+
+<tr>
+
+<td>
+Chromosome
+</td>
+
+
+<td>
+{{mapping.chromosome}}
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Position
+</td>
+
+
+<td>
+{{mapping.position}}
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Allele
+</td>
+
+
+<td>
+{{mapping.allele_string}}
+</td>
+
+
+</tr>
+
+
+</table>
+
+
+
+<!-- =========================
+ACMG Summary Card
+========================= -->
+
+<h2>
+ACMG-Inspired Summary
+</h2>
+
+<div class="acmg-summary-card">
+
+    <h3>ACMG Criteria Triggered</h3>
+
+    <ul class="criteria-list">
+
+    {% for item in acmg.evidence %}
+
+        <li>
+
+        {% if item.code == "HGVS" %}
+
+            {% if valid %}
+                <span class="criterion-active">✓ HGVS</span>
+            {% else %}
+                <span class="source-inactive">✗ HGVS</span>
+            {% endif %}
+
+        {% elif item.points > 0 %}
+
+            <span class="criterion-active">✓ {{ item.code }}</span>
+
+        {% else %}
+
+            <span class="source-inactive">□ {{ item.code }}</span>
+
+        {% endif %}
+
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+    <h3 style="margin-top:18px;">
+Overall Classification
+</h3>
+
+<div style="margin-top:10px;">
+
+
+
+
+
+        {% if acmg.classification == "Pathogenic" %}
+
+<span class="badge pathogenic">
+
+{{ acmg.classification }}
+
+</span>
+
+{% elif acmg.classification == "Likely Pathogenic" %}
+
+<span class="badge likely-pathogenic">
+
+{{ acmg.classification }}
+
+</span>
+
+{% elif acmg.classification == "Benign" %}
+
+<span class="badge benign">
+
+{{ acmg.classification }}
+
+</span>
+
+{% elif acmg.classification == "Likely Benign" %}
+
+<span class="badge benign">
+
+{{ acmg.classification }}
+
+</span>
+
+{% else %}
+
+<span class="badge vus">
+
+{{ acmg.classification }}
+
+</span>
+
+{% endif %}
+
+
+    
+
+
+
+</div>
+
+<!-- =========================
+Data Sources Card
+========================= -->
+
+<div class="data-sources-card">
+
+    <h3>Data Sources Used</h3>
+
+    <ul class="sources-list">
+        <li class="source-active">✓ HGVS Validator</li>
+        <li class="source-active">✓ ClinVar</li>
+        <li class="source-active">✓ Ensembl</li>
+    </ul>
+
+    <h3 style="margin-top:18px;">
+        Future Versions
+    </h3>
+
+    <ul class="sources-list">
+        <li class="source-inactive">□ AlphaMissense</li>
+        <li class="source-inactive">□ REVEL</li>
+        <li class="source-inactive">□ CADD</li>
+        <li class="source-inactive">□ gnomAD</li>
+    </ul>
+
+</div>
+
+
+<!-- =========================
+ACMG - Evidence Overview
+========================= -->
+
+
+<h2>
+ACMG-Inspired Evidence Overview
+</h2>
+
+
+<div class="evidence-overview">
+
+
+<div class="evidence-metric">
+
+<span class="metric-label">
+Classification
+</span>
+
+
+<span class="metric-value">
+
+{% if acmg.classification == "Pathogenic" %}
+
+<span class="pathogenic">{{acmg.classification}}</span>
+
+{% elif acmg.classification == "Likely Pathogenic" %}
+
+<span class="likely-pathogenic">{{acmg.classification}}</span>
+
+{% elif acmg.classification == "Benign" or acmg.classification == "Likely Benign" %}
+
+<span class="benign">{{acmg.classification}}</span>
+
+{% else %}
+
+<span class="vus">{{acmg.classification}}</span>
+
+{% endif %}
+
+</span>
+
+</div>
+
+
+
+
+<div class="evidence-metric">
+
+<span class="metric-label">
+Score
+</span>
+
+
+<span class="metric-value">
+{{acmg.score}} / 100
+</span>
+
+</div>
+
+
+
+
+<div class="evidence-metric">
+
+<span class="metric-label">
+Confidence
+</span>
+
+
+{% set confidence_class = "confidence-high" if acmg.confidence == "High" else ("confidence-moderate" if acmg.confidence == "Moderate" else ("confidence-low" if acmg.confidence == "Low" else "")) %}
+
+<span class="metric-value {{ confidence_class }}">
+{{acmg.confidence}}
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- =========================
+ACMG - Evidence Breakdown
+========================= -->
+
+
+<h2>
+Evidence Breakdown
+</h2>
+
+
+<table class="evidence-table">
+
+{% set strength_class_map = {
+    "Very Strong": "badge-very-strong",
+    "Strong": "badge-strong",
+    "Moderate": "badge-moderate",
+    "Supporting": "badge-supporting",
+    "Strong Benign": "badge-benign",
+    "Contradicting": "badge-benign",
+    "Criterion Met (Fallback)": "badge-strong",
+    "Criterion Not Met (Fallback)": "badge-not-applicable",
+    "Not Applicable": "badge-not-applicable",
+    "Not Available": "badge-not-applicable",
+    "Not Assessed": "badge-not-applicable",
+    "Not Mapped": "badge-not-applicable"
+} %}
+
+<tr>
+
+<th>
+Code
+</th>
+
+
+<th>
+Strength
+</th>
+
+
+<th>
+Source
+</th>
+
+
+<th>
+Points
+</th>
+
+
+<th>
+Explanation
+</th>
+
+</tr>
+
+
+
+{% for item in acmg.evidence %}
+
+<tr>
+
+<td>
+{{item.code}}
+</td>
+
+
+<td>
+<span class="strength-badge {{ strength_class_map.get(item.strength, 'badge-neutral') }}">
+{{item.strength}}
+</span>
+</td>
+
+
+<td>
+{{item.source}}
+</td>
+
+
+<td
+
+{% if item.points > 0 %} class="points-positive"
+{% elif item.points < 0 %} class="points-negative"
+{% else %} class="points-neutral"
+{% endif %}
+
+>
+
+{% if item.points > 0 %}+{% endif %}{{item.points}}
+
+</td>
+
+
+<td>
+{{item.explanation}}
+</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+
+
+
+
+
+<!-- =========================
+ACMG Reasoning
+========================= -->
+
+
+<h2>
+ACMG-Inspired Reasoning
+</h2>
+
+<div class="reasoning-box">
+
+<p>
+
+{{ acmg.reasoning }}
+
+</p>
+
+{% if clinvar.clinical_significance != "Not available"
+      and clinvar.clinical_significance != ""
+      and clinvar.clinical_significance != acmg.classification %}
+
+<hr>
+
+<p>
+
+<strong>Classification Note:</strong>
+
+ClinVar currently classifies this variant as
+
+<strong>{{ clinvar.clinical_significance }}</strong>.
+
+This educational ACMG-inspired engine classified the variant as
+
+<strong>{{ acmg.classification }}</strong>
+
+because it evaluates only a subset of ACMG/AMP evidence criteria.
+
+Additional evidence such as population frequency (gnomAD),
+functional assays, segregation studies,
+computational prediction scores,
+and other ACMG criteria are not yet incorporated.
+
+Therefore, this project's classification should be interpreted
+as an educational approximation rather than a clinical ACMG classification.
+
+</p>
+
+{% endif %}
+
+</div>
+
+
+
+
+
+
+<!-- =========================
+Biological Interpretation
+========================= -->
+
+
+<h2>
+Biological Interpretation
+</h2>
+
+
+<div class="reasoning-box">
+
+<p>
+<strong>Gene Overview:</strong>
+{{gene}} is the gene under interpretation in this analysis.
+Ensembl reports the canonical transcript as {{ensembl.transcript}},
+located on chromosome {{ensembl.chromosome}} (assembly {{genome_build}}).
+</p>
+
+</div>
+
+
+<div class="reasoning-box">
+
+<p>
+<strong>Variant Effect:</strong>
+The variant {{gene}}:{{variant}} is classified as a {{variant_type}} variant.
+Ensembl predicts the molecular consequence: {{ensembl.consequence}},
+resulting in the protein change {{ensembl.protein_change}}.
+</p>
+
+</div>
+
+
+<div class="reasoning-box">
+
+<p>
+<strong>Clinical Evidence:</strong>
+ClinVar reports this variant with a clinical significance of
+{{ clinvar.clinical_significance if clinvar.clinical_significance else "Not available" }}
+(review status:
+{{ clinvar.review_status if clinvar.review_status else "Not available" }}).
+
+Associated conditions include
+
+{% if clinvar.conditions %}
+    {% for c in clinvar.conditions %}
+        {{ c }}{% if not loop.last %}, {% endif %}
+    {% endfor %}
+{% else %}
+    No associated conditions found
+{% endif %}.
+</p>
+
+</div>
+
+
+
+<div class="reasoning-box">
+
+<p>
+
+<strong>Overall Assessment:</strong>
+
+The ACMG-inspired evidence engine classified this variant as
+
+{% if acmg.classification == "Pathogenic" %}
+<span class="pathogenic fw-bold">{{ acmg.classification }}</span>
+
+{% elif acmg.classification == "Likely Pathogenic" %}
+<span class="likely-pathogenic fw-bold">{{ acmg.classification }}</span>
+
+{% elif acmg.classification == "Benign" or acmg.classification == "Likely Benign" %}
+<span class="benign fw-bold">{{ acmg.classification }}</span>
+
+{% else %}
+<span class="vus fw-bold">{{ acmg.classification }}</span>
+
+{% endif %}
+
+with <strong>{{ acmg.confidence }}</strong> confidence based on the currently available evidence.
+
+</p>
+
+<p>Evidence supporting this interpretation:</p>
+
+<ul class="assessment-bullets">
+{% for item in acmg.evidence %}
+    {% if item.points != 0 %}
+    <li>
+        <strong>{{ item.code }} ({{ item.strength }})</strong><br>
+        {{ item.explanation }}
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<p>
+{% for item in acmg.evidence %}
+    {% if item.points == 0 %}
+        {{ item.code }} was not contributory to this classification
+        ({{ item.strength }}).
+    {% endif %}
+{% endfor %}
+</p>
+
+<p>
+Overall this educational ACMG-inspired analysis supports a
+{{ acmg.classification }} classification.
+</p>
+
+</div>
+
+
+
+{% if reasoning %}
+<div class="reasoning-box">
+
+<p>
+<strong>Extended Narrative:</strong>
+{{ reasoning }}
+</p>
+
+</div>
+{% endif %}
+
+
+
+
+
+
+
+<!-- =========================
+Limitations
+========================= -->
+
+
+<h2>
+Limitations
+</h2>
+
+
+<div class="limitations-box">
+
+
+<p>
+
+{{acmg.note}}
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- =========================
+Disclaimer
+========================= -->
+
+
+<h2>
+Disclaimer
+</h2>
+
+
+<div class="disclaimer-box">
+
+
+<p>
+
+<strong>
+This application is an educational and research tool.
+</strong>
+It is not intended for clinical diagnosis, treatment decisions,
+or any other medical use. Results should not be used to make
+healthcare decisions without review by a qualified clinical
+geneticist or molecular pathologist using validated, accredited
+laboratory methods.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<br>
+
+
+<a href="/download_report">
+
+
+<button>
+
+⬇ Download Scientific Report (PDF)
+
+</button>
+
+
+</a>
+
+
+
+
+
+<br><br>
+
+
+<a href="/interpret">
+
+
+<button>
+
+Interpret Another Variant
+
+</button>
+
+
+</a>
+
+
+
+
+
+
+
+<!-- =========================
+References
+========================= -->
+
+
+<h2>
+References
+</h2>
+
+
+<ul>
+
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/clinvar/" target="_blank">
+ClinVar – National Center for Biotechnology Information (NCBI)
+</a>
+</li>
+
+<li>
+<a href="https://www.ensembl.org/" target="_blank">
+Ensembl – European Bioinformatics Institute (EMBL-EBI)
+</a>
+</li>
+
+<li>
+<a href="https://varnomen.hgvs.org/" target="_blank">
+HGVS Nomenclature
+</a>
+</li>
+
+<li>
+<a href="https://pubmed.ncbi.nlm.nih.gov/25741868/" target="_blank">
+ACMG/AMP 2015 Guidelines (Richards et al., 2015)
+</a>
+</li>
+
+</ul>
+
+
+
+
+</div>
+
+
+{% endif %}
+
+
+</section>
+
+
+</body>
+
+</html>

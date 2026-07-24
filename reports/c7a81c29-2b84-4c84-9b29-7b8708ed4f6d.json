@@ -1,0 +1,98 @@
+{
+    "gene": "BRCA1",
+    "variant": "abcd",
+    "genome_build": "GRCh38",
+    "valid": false,
+    "variant_type": "Unknown",
+    "interpretation": "The variant type could not be determined from the supplied HGVS notation.",
+    "clinvar": {
+        "status": "No ClinVar record found"
+    },
+    "ensembl": {
+        "status": "Ensembl lookup failed",
+        "gene": "BRCA1",
+        "chromosome": "Not available",
+        "position": "Not available",
+        "transcript": "Not available",
+        "protein_change": "Not available",
+        "consequence": "Not available",
+        "impact": "Not available",
+        "gene_symbol": "BRCA1",
+        "gene_id": "Not available",
+        "biotype": "Not available",
+        "exon": "Not available",
+        "cds_position": "Not available",
+        "protein_position": "Not available",
+        "codons": "Not available",
+        "amino_acids": "Not available",
+        "sift": "Not available",
+        "polyphen": "Not available",
+        "hgvsc": "Not available",
+        "hgvsp": "Not available",
+        "allele_string": "Not available",
+        "rsid": "Not available",
+        "colocated_variants": [],
+        "assembly": "GRCh38",
+        "error": "{\"error\":\"Unable to parse HGVS notation 'ENST00000357654.9:abcd': Could not parse the HGVS notation ENST00000357654.9:abcd\"}"
+    },
+    "mapping": {
+        "status": "Mapping failed",
+        "chromosome": "Not available",
+        "position": "Not available",
+        "allele_string": "Not available",
+        "assembly": "GRCh38",
+        "error": "{\"error\":\"Unable to parse HGVS notation 'ENST00000357654.9:abcd': Could not parse the HGVS notation ENST00000357654.9:abcd\"}"
+    },
+    "acmg": {
+        "classification": "Variant of Uncertain Significance",
+        "score": 0,
+        "confidence": "Low",
+        "evidence": [
+            {
+                "code": "HGVS",
+                "strength": "Contradicting",
+                "source": "HGVS Validator",
+                "points": -10,
+                "status": "Not Met",
+                "explanation": "Variant does not follow HGVS nomenclature."
+            },
+            {
+                "code": "PVS1",
+                "strength": "Not Met",
+                "source": "Variant Type",
+                "points": 0,
+                "status": "Not Met",
+                "explanation": "No evidence for PVS1."
+            },
+            {
+                "code": "PM2",
+                "strength": "Not Available",
+                "source": "gnomAD",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Population frequency unavailable."
+            },
+            {
+                "code": "PP3",
+                "strength": "Not Available",
+                "source": "Predictors",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Computational predictors unavailable."
+            },
+            {
+                "code": "ClinVar",
+                "strength": "Not Applicable",
+                "source": "ClinVar",
+                "points": 0,
+                "status": "Not Applicable",
+                "explanation": "ClinVar does not provide strong evidence."
+            }
+        ],
+        "reasoning": "HGVS (Contradicting): Variant does not follow HGVS nomenclature.\n\nPVS1 (Not Met): No evidence for PVS1.\n\nPM2 (Not Available): Population frequency unavailable.\n\nPP3 (Not Available): Computational predictors unavailable.\n\nClinVar (Not Applicable): ClinVar does not provide strong evidence.\n\n\n\nOverall ACMG-inspired classification: Variant of Uncertain Significance.\n\nConfidence: Low.\n\nVisualization score: 0/100.\n\nThis interpretation is educational and should not be used for clinical decision making.",
+        "note": "Educational ACMG-inspired classification. Not for clinical diagnosis."
+    },
+    "reasoning": "The variant is located within the BRCA1 gene on chromosome Not available and is annotated on transcript Not available. It is described as unknown.\n\nThe submitted variant BRCA1:abcd was evaluated using multiple publicly available genomic resources including Ensembl, ClinVar, HGVS validation and the educational ACMG-inspired evidence engine.\n\nEnsembl predicts the molecular consequence 'not available'. This consequence is reported for completeness but is not specifically weighted by the simplified ACMG-inspired evidence engine.\n\nBased on the currently available evidence, this educational ACMG-inspired framework classifies the variant as Variant of Uncertain Significance.\n\nThe currently available evidence is insufficient to support either a pathogenic or benign interpretation. Additional population frequency data, computational prediction scores, functional assays and segregation studies would improve confidence in future analyses.\n\nThis report is intended exclusively for educational and research purposes and must not be used for clinical diagnosis or medical decision making.",
+    "gene_description": "BRCA1 is a tumor suppressor gene involved in homologous recombination DNA repair. Pathogenic variants increase the risk of hereditary breast and ovarian cancer.",
+    "classification_note": ""
+}
