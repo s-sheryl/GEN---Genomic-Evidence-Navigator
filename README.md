@@ -49,8 +49,9 @@ The four screenshots below follow the actual user path through the app: landing 
 
 **1. Home page**
 Landing page introducing the project and summarizing the four-stage workflow shown in the UI (HGVS Input → Variant Validation → Evidence Retrieval → Interpretation).
-
 ![Home Page](images/home.png)
+<img width="1440" height="1431" alt="home" src="https://github.com/user-attachments/assets/84be3a5a-8143-4bd6-a002-6f6e09fefc03" />
+
 
 **2. Variant interpretation form**
 Intake form for the gene symbol, HGVS coding variant, and genome build (GRCh37/GRCh38). This is the only user input the pipeline requires.
