@@ -1,0 +1,40 @@
+{
+    "gene": "BRCA1",
+    "variant": "c.68_69delAG",
+    "genome_build": "GRCh38",
+    "variant_type": "Deletion / Frameshift",
+    "clinvar": {
+        "status": "ClinVar record found",
+        "clinvar_id": "17662",
+        "title": "NM_007294.4(BRCA1):c.68_69del (p.Glu23fs)",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel",
+        "conditions": [
+            "BRCA1-related cancer predisposition"
+        ]
+    },
+    "ensembl": {
+        "status": "Ensembl connection failed",
+        "error": "HTTPSConnectionPool(host='rest.ensembl.org', port=443): Read timed out. (read timeout=20)"
+    },
+    "mapping": {
+        "status": "Mapping failed",
+        "error": "Content-Type application/json had a problem with your request.\r\n***ERROR***\r\nmalformed JSON string, neither tag, array, object, number, string or atom, at character offset 0 (before \"BRCA1:c.68_69delAG\") at /nfs/public/ro/ensweb/live/rest/www_116/.plenv/versions/5.26.2/lib/perl5/site_perl/5.26.2/Catalyst/Action/Deserialize/JSON.pm line 35, <$fh> line 2.\n"
+    },
+    "gnomad": {
+        "status": "gnomAD lookup pending",
+        "gene": "BRCA1",
+        "variant": "c.68_69delAG",
+        "frequency": null,
+        "interpretation": "Frequency unavailable"
+    },
+    "acmg": {
+        "score": 80,
+        "classification": "Pathogenic",
+        "evidence": [
+            "PVS1: Predicted loss-of-function variant",
+            "ClinVar: Pathogenic classification"
+        ]
+    },
+    "reasoning": "The variant BRCA1:c.68_69delAG is classified as a deletion / frameshift variant. ClinVar reports this variant as Pathogenic. Population frequency evidence: Frequency unavailable. ACMG-inspired interpretation: Pathogenic."
+}

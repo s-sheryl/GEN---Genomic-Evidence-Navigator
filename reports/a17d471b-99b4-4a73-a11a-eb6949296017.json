@@ -1,0 +1,218 @@
+{
+    "gene": "BRCA1",
+    "variant": "c.68_69delAG",
+    "genome_build": "GRCh38",
+    "valid": true,
+    "variant_type": "Frameshift deletion",
+    "interpretation": "Frameshift deletions disrupt the reading frame and frequently produce a truncated or non-functional protein.",
+    "clinvar": {
+        "status": "ClinVar record found",
+        "clinvar_id": "17662",
+        "clinical_significance": "Pathogenic",
+        "review_status": "reviewed by expert panel",
+        "conditions": [
+            "BRCA1-related cancer predisposition"
+        ]
+    },
+    "ensembl": {
+        "status": "Ensembl annotation found",
+        "gene": "BRCA1",
+        "chromosome": "17",
+        "position": 43124028,
+        "transcript": "ENST00000352993",
+        "protein_change": "ENSP00000312236.5:p.Glu23ValfsTer17",
+        "consequence": "frameshift_variant",
+        "impact": "HIGH",
+        "gene_symbol": "BRCA1",
+        "gene_id": "ENSG00000012048",
+        "biotype": "protein_coding",
+        "exon": "Not available",
+        "cds_position": 68,
+        "protein_position": 23,
+        "codons": "gAG/g",
+        "amino_acids": "E/X",
+        "sift": "Not available",
+        "polyphen": "Not available",
+        "hgvsc": "ENST00000352993.8:c.68_69del",
+        "hgvsp": "ENSP00000312236.5:p.Glu23ValfsTer17",
+        "allele_string": "AG/-",
+        "rsid": "rs80357914",
+        "colocated_variants": [
+            {
+                "var_synonyms": {
+                    "ClinVar": [
+                        "RCV004566751",
+                        "RCV004554604",
+                        "RCV005003443",
+                        "RCV005003391",
+                        "RCV005357148",
+                        "RCV000223371",
+                        "RCV000213650",
+                        "RCV000131394",
+                        "RCV000143834",
+                        "VCV000055667",
+                        "RCV000034761",
+                        "RCV000019231",
+                        "RCV000019230",
+                        "VCV000017662",
+                        "RCV000056295",
+                        "RCV003389669",
+                        "RCV002504947",
+                        "RCV002496414",
+                        "RCV001353942",
+                        "RCV001836711",
+                        "RCV003225925",
+                        "RCV003128128",
+                        "RCV000785197",
+                        "RCV000779878",
+                        "RCV000735481",
+                        "RCV000657219"
+                    ],
+                    "OMIM": [
+                        113705.0003
+                    ]
+                },
+                "id": "rs80357914",
+                "phenotype_or_disease": 1,
+                "frequencies": {
+                    "-": {
+                        "gnomadg_asj": 0.005482,
+                        "gnomadg_remaining": 0,
+                        "gnomade_sas": 5.8e-05,
+                        "gnomade_fin": 0,
+                        "gnomade": 0.0001158,
+                        "gnomadg_afr": 0,
+                        "gnomade_afr": 0,
+                        "gnomadg_mid": 0,
+                        "gnomadg_fin": 0,
+                        "gnomadg_eas": 0,
+                        "gnomade_mid": 0.0001736,
+                        "gnomadg_nfe": 2.94e-05,
+                        "gnomade_nfe": 3.332e-05,
+                        "gnomadg_sas": 0,
+                        "gnomade_eas": 0,
+                        "gnomade_remaining": 0.0003317,
+                        "gnomade_asj": 0.003983,
+                        "gnomadg_amr": 6.545e-05,
+                        "gnomadg_ami": 0,
+                        "gnomade_amr": 4.472e-05,
+                        "gnomadg": 0.0001446
+                    }
+                },
+                "allele_string": "CTCT/CT/CTCTCT",
+                "clin_sig_ref_allele": "CT",
+                "start": 43124028,
+                "clin_sig": [
+                    "pathogenic",
+                    "risk_factor"
+                ],
+                "seq_region_name": "17",
+                "end": 43124031,
+                "pubmed": [
+                    25741868,
+                    30781715,
+                    26467025,
+                    20104584,
+                    26295337,
+                    8841191,
+                    26543556,
+                    16267036,
+                    7894492,
+                    7550349,
+                    16941470,
+                    36579549,
+                    31454914,
+                    35451682,
+                    32546831,
+                    37047678,
+                    34660253,
+                    35464868,
+                    33584971,
+                    36171877,
+                    34643925,
+                    9536083,
+                    18762988,
+                    9764635,
+                    12220453,
+                    9450187,
+                    9625172,
+                    38075165,
+                    38075173,
+                    36434258,
+                    38156855,
+                    38918649,
+                    39684352,
+                    39438716,
+                    39805914,
+                    39438962,
+                    40002208,
+                    40257527,
+                    40392379,
+                    40071159
+                ],
+                "strand": 1,
+                "clin_sig_allele": "CTCTCT:pathogenic"
+            }
+        ],
+        "assembly": "GRCh38"
+    },
+    "mapping": {
+        "status": "Mapping successful",
+        "chromosome": "17",
+        "position": 43124028,
+        "allele_string": "AG/-",
+        "assembly": "GRCh38"
+    },
+    "acmg": {
+        "classification": "Pathogenic",
+        "score": 95,
+        "confidence": "Moderate",
+        "evidence": [
+            {
+                "code": "HGVS",
+                "strength": "Supporting",
+                "source": "HGVS Validator",
+                "points": 5,
+                "status": "Met",
+                "explanation": "Variant follows HGVS nomenclature."
+            },
+            {
+                "code": "PVS1",
+                "strength": "Very Strong",
+                "source": "Ensembl",
+                "points": 30,
+                "status": "Met",
+                "explanation": "Predicted loss-of-function (frameshift_variant)."
+            },
+            {
+                "code": "PM2",
+                "strength": "Not Available",
+                "source": "gnomAD",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Population frequency unavailable."
+            },
+            {
+                "code": "PP3",
+                "strength": "Not Available",
+                "source": "Predictors",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Computational predictors unavailable."
+            },
+            {
+                "code": "ClinVar",
+                "strength": "Very Strong",
+                "source": "ClinVar",
+                "points": 60,
+                "status": "Met",
+                "explanation": "ClinVar Expert Panel classified the variant as pathogenic."
+            }
+        ],
+        "reasoning": "HGVS (Supporting): Variant follows HGVS nomenclature.\n\nPVS1 (Very Strong): Predicted loss-of-function (frameshift_variant).\n\nPM2 (Not Available): Population frequency unavailable.\n\nPP3 (Not Available): Computational predictors unavailable.\n\nClinVar (Very Strong): ClinVar Expert Panel classified the variant as pathogenic.\n\n\n\nOverall ACMG-inspired classification: Pathogenic.\n\nConfidence: Moderate.\n\nVisualization score: 95/100.\n\nThis interpretation is educational and should not be used for clinical decision making.",
+        "note": "Educational ACMG-inspired classification. Not for clinical diagnosis."
+    },
+    "reasoning": "The variant is located within the BRCA1 gene on chromosome 17 and is annotated on transcript ENST00000352993. It is described as frameshift deletion.\n\nThe submitted variant BRCA1:c.68_69delAG was evaluated using multiple publicly available genomic resources including Ensembl, ClinVar, HGVS validation and the educational ACMG-inspired evidence engine.\n\nThis interpretation is primarily supported by the ClinVar clinical significance of 'Pathogenic'. The available record has a review status of 'reviewed by expert panel', providing additional confidence in the submitted interpretation.\n\nEnsembl predicts a frameshift variant. Frameshift variants alter the reading frame and often introduce premature stop codons, which may produce a truncated or non-functional protein. Under this simplified ACMG-inspired framework, this supports loss-of-function evidence (PVS1-like).\n\nBased on the currently available evidence, this educational ACMG-inspired framework classifies the variant as Pathogenic.\n\nMultiple independent lines of evidence consistently support a pathogenic interpretation.\n\nThis report is intended exclusively for educational and research purposes and must not be used for clinical diagnosis or medical decision making.",
+    "gene_description": "BRCA1 is a tumor suppressor gene involved in homologous recombination DNA repair. Pathogenic variants increase the risk of hereditary breast and ovarian cancer.",
+    "classification_note": ""
+}

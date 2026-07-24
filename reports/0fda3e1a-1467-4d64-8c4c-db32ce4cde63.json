@@ -1,0 +1,98 @@
+{
+    "gene": "CFTR",
+    "variant": "c.68_69delAG",
+    "genome_build": "GRCh38",
+    "valid": true,
+    "variant_type": "Frameshift deletion",
+    "interpretation": "Frameshift deletions disrupt the reading frame and frequently produce a truncated or non-functional protein.",
+    "clinvar": {
+        "status": "No ClinVar record found"
+    },
+    "ensembl": {
+        "status": "Ensembl lookup failed",
+        "gene": "CFTR",
+        "chromosome": "Not available",
+        "position": "Not available",
+        "transcript": "Not available",
+        "protein_change": "Not available",
+        "consequence": "Not available",
+        "impact": "Not available",
+        "gene_symbol": "CFTR",
+        "gene_id": "Not available",
+        "biotype": "Not available",
+        "exon": "Not available",
+        "cds_position": "Not available",
+        "protein_position": "Not available",
+        "codons": "Not available",
+        "amino_acids": "Not available",
+        "sift": "Not available",
+        "polyphen": "Not available",
+        "hgvsc": "Not available",
+        "hgvsp": "Not available",
+        "allele_string": "Not available",
+        "rsid": "Not available",
+        "colocated_variants": [],
+        "assembly": "GRCh38",
+        "error": "<html><body><h1>503 Service Unavailable</h1>\nNo server is available to handle this request.\n</body></html>\n"
+    },
+    "mapping": {
+        "status": "Mapping connection error",
+        "chromosome": "Not available",
+        "position": "Not available",
+        "allele_string": "Not available",
+        "assembly": "GRCh38",
+        "error": "HTTPSConnectionPool(host='rest.ensembl.org', port=443): Read timed out. (read timeout=30)"
+    },
+    "acmg": {
+        "classification": "Likely Pathogenic",
+        "score": 25,
+        "confidence": "Moderate",
+        "evidence": [
+            {
+                "code": "HGVS",
+                "strength": "Supporting",
+                "source": "HGVS Validator",
+                "points": 5,
+                "status": "Met",
+                "explanation": "Variant follows HGVS nomenclature."
+            },
+            {
+                "code": "PVS1",
+                "strength": "Strong",
+                "source": "Variant Type",
+                "points": 20,
+                "status": "Met",
+                "explanation": "Loss-of-function inferred from variant type."
+            },
+            {
+                "code": "PM2",
+                "strength": "Not Available",
+                "source": "gnomAD",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Population frequency unavailable."
+            },
+            {
+                "code": "PP3",
+                "strength": "Not Available",
+                "source": "Predictors",
+                "points": 0,
+                "status": "Not Available",
+                "explanation": "Computational predictors unavailable."
+            },
+            {
+                "code": "ClinVar",
+                "strength": "Not Applicable",
+                "source": "ClinVar",
+                "points": 0,
+                "status": "Not Applicable",
+                "explanation": "ClinVar does not provide strong evidence."
+            }
+        ],
+        "reasoning": "HGVS (Supporting): Variant follows HGVS nomenclature.\n\nPVS1 (Strong): Loss-of-function inferred from variant type.\n\nPM2 (Not Available): Population frequency unavailable.\n\nPP3 (Not Available): Computational predictors unavailable.\n\nClinVar (Not Applicable): ClinVar does not provide strong evidence.\n\n\n\nOverall ACMG-inspired classification: Likely Pathogenic.\n\nConfidence: Moderate.\n\nVisualization score: 25/100.\n\nThis interpretation is educational and should not be used for clinical decision making.",
+        "note": "Educational ACMG-inspired classification. Not for clinical diagnosis."
+    },
+    "reasoning": "The variant is located within the CFTR gene on chromosome Not available and is annotated on transcript Not available. It is described as frameshift deletion.\n\nThe submitted variant CFTR:c.68_69delAG was evaluated using multiple publicly available genomic resources including Ensembl, ClinVar, HGVS validation and the educational ACMG-inspired evidence engine.\n\nEnsembl predicts the molecular consequence 'not available'. This consequence is reported for completeness but is not specifically weighted by the simplified ACMG-inspired evidence engine.\n\nBased on the currently available evidence, this educational ACMG-inspired framework classifies the variant as Likely Pathogenic.\n\nThe available evidence supports a likely pathogenic interpretation, although additional clinical and functional evidence would further strengthen confidence.\n\nThis report is intended exclusively for educational and research purposes and must not be used for clinical diagnosis or medical decision making.",
+    "gene_description": "CFTR encodes a chloride ion channel responsible for epithelial salt and water transport. Pathogenic variants cause cystic fibrosis.",
+    "classification_note": ""
+}
