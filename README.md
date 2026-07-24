@@ -13,13 +13,22 @@ Educational Bioinformatics Project
 This is a student project built to learn how the pieces of a variant interpretation pipeline fit together in practice — it is not a clinical tool, and it is not trying to be one. Full technical detail lives in [`docs/`](docs/); this file is the overview.
 
 ---
-## 🚀 Live Demo
+## 🌐 Demo
 
 Try the application here:
 
-**🔗 https://gen-genomic-evidence-navigator.onrender.com**
+**https://gen-genomic-evidence-navigator.onrender.com**
 
-> **Note:** This application is hosted on Render's free tier. If the service has been inactive, the first request may take up to 30–60 seconds while the server starts.
+Example test case:
+
+Gene:
+TP53
+
+Variant:
+c.818G>A
+
+Genome:
+GRCh38
 
 ## Table of Contents
 
