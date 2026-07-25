@@ -1,12 +1,12 @@
 # GEN: An Educational Software Platform for ACMG-Inspired Genomic Variant Interpretation
 
-**Technical Report**
+****
 
 ### Citation
 
 Sheryl S.
 GEN: An Educational Software Platform for ACMG-Inspired Genomic Variant Interpretation.
-Technical Report Version 1.0
+
 2026
 
 ---
@@ -198,7 +198,7 @@ GEN should not be used for clinical diagnosis or any medical decision-making, no
 ## Software Availability
 
 **Repository:**
-https://github.com/YOUR_USERNAME/GEN---Genomic-Evidence-Navigator
+https://github.com/s-sheryl/GEN---Genomic-Evidence-Navigator
 
 **Live Demo:**
 https://gen-genomic-evidence-navigator.onrender.com
@@ -213,6 +213,9 @@ Python 3
 Flask
 
 ---
+Ethics Statement
+
+GEN is intended exclusively for education, software engineering, and bioinformatics training. It is not designed, validated, or approved for clinical diagnosis or patient management. Any clinical interpretation of genetic variants should be performed by qualified professionals using validated diagnostic pipelines.
 
 ## References
 
